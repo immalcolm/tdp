@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+  }
+  a.foo {
+    padding: 5px 10px;
+    background: #ff5f6d;
+  
+    /* transition properties */
+    transition-property: background;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0.5s;
+    font-size: 2rem;
+  
+    /* transition shorthand */
+    /* transition: background 1s ease 0.5s;*/
+  
+  }
+  a.foo:hover {
+    background: #ffc371;
+  }
+  
