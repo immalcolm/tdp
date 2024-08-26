@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            /*centering content*/
+            justify-content: center;
+            align-items: center;
+     
+            flex-direction: row;
+            /* flex-direction: row;*/
+            height: 100vh;
+            border:4px solid green;
+            /*flex-wrap: wrap;*/
+            background-color:antiquewhite;
+            justify-content:space-around;
+            align-items:baseline; /*items at top*/
+            align-items:end;/*items to bottom*/
+        }
+        .flex-item{
+            border:1px solid red;
+            background-color:azure;
+            
+            /*item start at 200px, 
+            shrink when more items are added
+            */
+            flex-basis: 200px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex-item">
+            <h1>Box 1</h1>
+        </div>
+        <div class="flex-item">
+            <h1>Box 2</h1>
+        </div>
+        <div class="flex-item">
+            <h1>Box 3</h1>
+        </div>
+        <!--
+        <div class="flex-item">
+            <h1>Box 4</h1>
+        </div>
+        <div class="flex-item">
+            <h1>Box 5</h1>
+        </div>
+        <div class="flex-item">
+            <h1>Box 6</h1>
+        </div>
+        -->
+    </div>
+</body>
+</html>
