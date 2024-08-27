@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data"></div>
+
+    <form>
+      <input type="text" id="txt-content" name="txt-content" />
+      <button type="submit" id="btn-submit">Send to GPT</button>
+    </form>
+    <script>
+      btnSubmit = document.getElementById("btn-submit");
+
+      btnSubmit.addEventListener("click", function () {
+        let userContent = document.getElementById("txt-content").value;
+        sendToGPT(userContent);
+      });
+
+      function sendToGPT(userContent) {
+        const myHeaders = new Headers();
+        myHeaders.append(
+          "x-rapidapi-key",
+          "7372e723e1mshd0fb4693fd801f3p1f951ajsn8c5b81d515d4"
+        );
+        myHeaders.append("x-rapidapi-host", "chatgpt-42.p.rapidapi.com");
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+          messages: [
+            {
+              role: "user",
+              content: userContent,
+            },
+          ],
+          system_prompt: "",
+          temperature: 0.9,
+          top_k: 5,
+          top_p: 0.9,
+          max_tokens: 256,
+          web_access: false,
+        });
+
+        const requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch(
+          "https://chatgpt-42.p.rapidapi.com/conversationgpt4-2",
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            document.getElementById("data").innerHTML = result.result;
+            /*
+             change css styling or animation
+            */
+          })
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </body>
+</html>
